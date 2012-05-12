@@ -47,6 +47,25 @@ initial begin
   $dumpvars(0, onewire_tb);
 end
 
+int fd;
+int code;
+bit run;
+
+// sampler
+initial begin
+  fd = $fopen ("onewire.bin", "w");
+  run = '1;
+//  while (run) begin
+////    #0.1us;
+////    code = $ungetc ({7'b0, owr}, fd);
+//    #1us;
+////    $fwrite(fd, "%b", owr);
+//  end
+//  $fclose(fd);
+end
+  
+//always #0.1us $fwrite(fd, "%b", owr);
+
 //////////////////////////////////////////////////////////////////////////////
 // program
 //////////////////////////////////////////////////////////////////////////////
@@ -57,6 +76,9 @@ initial begin
   data_w = 8'h55;
   onewire_master.onewire_byte  (data_w, data_r);
   #1ms;
+  run = '0;
+  #1;
+  $finish();
 end
 
 //////////////////////////////////////////////////////////////////////////////
