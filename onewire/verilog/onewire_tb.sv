@@ -37,6 +37,10 @@ logic       presence;
 logic [7:0] data_w;
 logic [7:0] data_r;
 
+int fd;
+bit run;
+event sample;
+
 //////////////////////////////////////////////////////////////////////////////
 // VCD waveforms
 //////////////////////////////////////////////////////////////////////////////
@@ -47,25 +51,18 @@ initial begin
   $dumpvars(0, onewire_tb);
 end
 
-int fd;
-int code;
-bit run;
-
 // sampler
 initial begin
   fd = $fopen ("onewire.bin", "w");
   run = '1;
-//  while (run) begin
-////    #0.1us;
-////    code = $ungetc ({7'b0, owr}, fd);
-//    #1us;
-////    $fwrite(fd, "%b", owr);
-//  end
-//  $fclose(fd);
+  while (run) begin
+    #1us;
+    -> sample;
+    $fwrite(fd, "%b", owr);
+  end
+  $fclose(fd);
 end
   
-//always #0.1us $fwrite(fd, "%b", owr);
-
 //////////////////////////////////////////////////////////////////////////////
 // program
 //////////////////////////////////////////////////////////////////////////////

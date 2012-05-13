@@ -69,11 +69,11 @@ task onewire_bit (
   # T_DAT1;
   // send 0 or 1
   pull = data_w ? '0 : '1;
-  # (T_DAT1-T_DATS);
+  # (T_DATS-T_DAT1);
   // data sample
   data_r = owr;
   // tail
-  # (T_DAT0-T_DAT1-T_DATS);
+  # (T_DAT0-T_DATS);
   pull = '0;
   // recovery
   # T_REC;
