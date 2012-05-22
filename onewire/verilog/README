@@ -1,0 +1,1 @@
+sigrok-cli -i onewire.sr -a onewire:owr=1
