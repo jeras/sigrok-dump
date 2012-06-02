@@ -27,6 +27,11 @@ module onewire_tb;
 
 localparam OWN = 1;    // slaves with different timing (min, typ, max)
 
+//localparam SP = 1us;  // sample period
+`ifndef SP
+`define SP 1us
+`endif
+
 // onewire
 wire [OWN-1:0] owr;     // bidirectional
 
@@ -56,7 +61,8 @@ initial begin
   fd = $fopen ("onewire.bin", "w");
   run = '1;
   while (run) begin
-    #1us;
+//    #SP;
+    #`SP;
     -> sample;
     $fwrite(fd, "%b", owr);
   end

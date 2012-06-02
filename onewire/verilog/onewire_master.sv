@@ -25,13 +25,13 @@
 
 module onewire_master #(
     // optimal timig for master
-    parameter T_RSTL = 480.0,  // reset low (min)
-    parameter T_RSTH = 480.0,  // reset high (min)
-    parameter T_RSTP =  75.0,  // reset presence detect (max)
-    parameter T_DAT0 =  60.0,  // data bit 0 (min)
-    parameter T_DAT1 =   5.0,  // data bit 1 (min)
-    parameter T_DATS =  15.0,  // data sample (max)
-    parameter T_REC  =   5.0   // recovery (min)
+    parameter real T_RSTL = 480.0,  // reset low (min)
+    parameter real T_RSTH = 480.0,  // reset high (min)
+    parameter real T_RSTP =  75.0,  // reset presence detect (max)
+    parameter real T_DAT0 =  60.0,  // data bit 0 (min)
+    parameter real T_DAT1 =   5.0,  // data bit 1 (min)
+    parameter real T_DATS =  15.0,  // data sample (max)
+    parameter real T_REC  =   5.0   // recovery (min)
 //  real TS = 30.0   // time slot (min=15.0, typ=30.0, max=60.0)
 )(
   inout wire owr  // 1-wire

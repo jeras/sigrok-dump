@@ -24,8 +24,8 @@
 `timescale 1us / 1ns
 
 module onewire_slave #(
-  parameter TS = 30.0
-//  real TS = 30.0   // time slot (min=15.0, typ=30.0, max=60.0)
+//  parameter TS = 30.0
+  parameter real TS = 30.0   // time slot (min=15.0, typ=30.0, max=60.0)
 )(
   inout logic owr  // 1-wire
 );
