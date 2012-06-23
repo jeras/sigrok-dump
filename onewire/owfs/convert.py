@@ -7,7 +7,7 @@ import re
 SP = "1us"
 SF = "1MHz"
 
-name = "DS18B20"
+name = "DS28EA00"
 
 # open a TLA700 TXT dump and convert it into a binary dump
 txt_dump = open(name+".txt", "r").readlines()
