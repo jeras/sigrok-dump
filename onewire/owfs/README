@@ -62,3 +62,5 @@ Decoding 1-Wire dumps
 sigrok-cli -i owdir.sr -a onewire:owr=0
 sigrok-cli -i DS18B20.sr -a onewire:owr=0
 sigrok-cli -i DS28EA00.sr -a onewire:owr=0
+
+sigrok-cli -l 3 -i DS18B20.sr -a onewire_link:owr=0,onewire_network -s onewire_link,onewire_network -A onewire_network
